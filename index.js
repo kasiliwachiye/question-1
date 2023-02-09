@@ -20,7 +20,10 @@ app.use("/api/topup", topup);
 app.use("/api/withdraw", withdraw);
 
 mongoose
-  .connect("mongodb://localhost:27017/users", { useNewUrlParser: true })
+  .connect(
+    "mongodb+srv://kasiliwachiye:uU83hxw7jzkPtmMm@cluster0.koiptqu.mongodb.net/?retryWrites=true&w=majority",
+    { useNewUrlParser: true }
+  )
   .then(() => {
     console.log("Successfully connected to MongoDB");
   })
