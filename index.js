@@ -6,6 +6,8 @@ const mongoose = require("mongoose");
 const accounts = require("./routes/accounts");
 const cards = require("./routes/cards");
 const customers = require("./routes/customers");
+const topup = require("./routes/topup");
+const withdraw = require("./routes/withdraw");
 
 // middlewares
 app.use(express.json());
@@ -14,6 +16,8 @@ app.use(bodyParser.json());
 app.use("/api/accounts", accounts);
 app.use("/api/cards", cards);
 app.use("/api/customers", customers);
+app.use("/api/topup", topup);
+app.use("/api/withdraw", withdraw);
 
 mongoose
   .connect("mongodb://localhost:27017/users", { useNewUrlParser: true })
