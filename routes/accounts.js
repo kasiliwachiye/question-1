@@ -1,13 +1,16 @@
 const express = require("express");
 const router = express.Router();
-// model
-const { Account } = require("../models/account.model");
 
-router.post("/accounts", async (req, res) => {
+// model
+const { Account } = require("../models/account");
+const { Customer } = require("../models/customer");
+
+router.post("/", async (req, res) => {
   const account = new Account({
-    balance: req.body.balance,
     customer: req.body.customerId,
+    balance: req.body.balance,
   });
+
   try {
     await account.save();
     const customer = await Customer.findById(req.body.customerId);

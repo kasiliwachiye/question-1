@@ -1,9 +1,10 @@
 const express = require("express");
+const { Account } = require("../models/account");
 const router = express.Router();
 // model
-const { Card } = require("../models/card.model");
+const { Card } = require("../models/card");
 
-router.post("/cards", async (req, res) => {
+router.post("/", async (req, res) => {
   const card = new Card({
     number: req.body.number,
     account: req.body.accountId,
