@@ -18,7 +18,7 @@ router.post("/", async (req, res) => {
     await customer.save();
     res
       .status(201)
-      .send({ message: `Customer created with id ${customer._id}` });
+      .send({ message: `Customer, ${customer.name}, created with ID: ${customer._id}` });
   } catch (error) {
     res.status(400).send(error);
   }

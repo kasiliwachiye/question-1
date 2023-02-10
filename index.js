@@ -3,6 +3,7 @@ const app = express();
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 
+// routes
 const accounts = require("./routes/accounts");
 const cards = require("./routes/cards");
 const customers = require("./routes/customers");
@@ -20,8 +21,13 @@ app.use("/api/topup", topup);
 app.use("/api/withdraw", withdraw);
 
 mongoose
+  // ==========================================================================================================
+  // this would usually go in a .env file. It's just here for your ease of testing - Kasili Wachiye
+  // you can entirely remove the MongoDB Atlas configuration and just use "mongodb://localhost:27017/users" to run it locally in your machine - Kasili Wachiye
+  // ==========================================================================================================
   .connect(
-    "mongodb+srv://kasiliwachiye:uU83hxw7jzkPtmMm@cluster0.koiptqu.mongodb.net/?retryWrites=true&w=majority",
+    "mongodb+srv://kasiliwachiye:uU83hxw7jzkPtmMm@cluster0.koiptqu.mongodb.net/?retryWrites=true&w=majority" ||
+      "mongodb://localhost:27017/users",
     { useNewUrlParser: true }
   )
   .then(() => {
@@ -31,21 +37,12 @@ mongoose
     console.error(err);
   });
 
-const PORT = process.env.PORT;
-
 app.get("/", (req, res) => {
-  res.write("<h1>WELCOME</h1>");
-  res.write(
-    "To add a customer, proceed to /api/customers and make a post request passing the name of the customer"
-  );
-  res.write(
-    "To add an account, proceed to /api/accounts and make a post request passing the customerId and optionally, the balance"
-  );
-  res.write(
-    "To add a card, proceed to /api/cards and make a post request passing the accountId and the (card) number"
+  res.send(
+    "WELCOME. BIENVENUE. WILKOMMEN. \n\n To add a customer, proceed to '/api/customers' and make a POST request passing the -name- of the customer. \n\nTo add an account, proceed to '/api/accounts' and make a POST request passing the -name- of the account, the -customerId- (from customer creation - default MongoDB ObjectID) and optionally, the -balance-. \n\nTo add a card, proceed to '/api/cards' and make a POST request passing the customer -accountId-(from account creation - default MongoDB ObjectID) and the (card) -name- and -number-"
   );
 });
 
-app.listen(PORT || 3000, () => {
-  console.log(`App is running on port ${PORT}`);
+app.listen(3000, () => {
+  console.log(`App is running on port 3000`);
 });

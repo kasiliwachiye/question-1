@@ -16,7 +16,9 @@ router.post("/", (req, res) => {
 
     account.save((err, updatedAccount) => {
       if (err) return res.status(500).send(err);
-      return res.send(updatedAccount);
+      return res.send(
+        `${account.name} account, of ID: ${account._id}, had $${req.body.amount} credited. New balance is $${updatedAccount.balance}.`
+      );
     });
   });
 });
