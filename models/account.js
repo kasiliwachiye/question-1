@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const accountSchema = new mongoose.Schema({
   balance: {
     type: Number,
-    required: true,
+    default: 0,
   },
   customer: {
     type: mongoose.Schema.Types.ObjectId,
