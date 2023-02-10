@@ -33,6 +33,12 @@ mongoose
 
 const PORT = process.env.PORT;
 
+app.get("/", (req, res) => {
+  res.send(
+    "To add a customer, proceed to api/customers and make a post request passing the name of the client as a paramater"
+  );
+});
+
 app.listen(PORT || 3000, () => {
   console.log(`App is running on port ${PORT}`);
 });
