@@ -39,7 +39,7 @@ mongoose
 
 app.get("/", (req, res) => {
   res.send(
-    "WELCOME. BIENVENUE. WILKOMMEN. \n\n To add a customer, proceed to '/api/customers' and make a POST request passing the -name- of the customer. \n\nTo add an account, proceed to '/api/accounts' and make a POST request passing the -name- of the account, the -customerId- (from customer creation - default MongoDB ObjectID) and optionally, the -balance-. \n\nTo add a card, proceed to '/api/cards' and make a POST request passing the customer -accountId-(from account creation - default MongoDB ObjectID) and the (card) -name- and -number-"
+    "🔆WELCOME. BIENVENUE. WILKOMMEN.🔆 \n\n To add a customer, proceed to '/api/customers' and make a POST request passing the -name- of the customer. \n\nTo add an account, proceed to '/api/accounts' and make a POST request passing the -name- of the account, the -customerId- (from customer creation - default MongoDB ObjectID) and optionally, the -balance-. \n\nTo add a card, proceed to '/api/cards' and make a POST request passing the customer -accountId-(from account creation - default MongoDB ObjectID) and the (card) -name- and -number-"
   );
 });
 
