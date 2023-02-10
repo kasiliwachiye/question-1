@@ -34,14 +34,14 @@ mongoose
 const PORT = process.env.PORT;
 
 app.get("/", (req, res) => {
-  res.send("<h1>WELCOME</h1>");
-  res.send(
+  res.write("<h1>WELCOME</h1>");
+  res.write(
     "To add a customer, proceed to /api/customers and make a post request passing the name of the customer"
   );
-  res.send(
+  res.write(
     "To add an account, proceed to /api/accounts and make a post request passing the customerId and optionally, the balance"
   );
-  res.send(
+  res.write(
     "To add a card, proceed to /api/cards and make a post request passing the accountId and the (card) number"
   );
 });
