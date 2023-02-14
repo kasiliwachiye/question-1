@@ -23,7 +23,7 @@ router.post("/", async (req, res) => {
     customer.accounts.push(account._id);
     await customer.save();
     res.status(201).send({
-      message: `${account.name} Account, created with ID: ${account._id}. Current balance: ${account.balance}`,
+      message: `${account.name} account created with ID: ${account._id}. Current balance: ${account.balance}`,
     });
   } catch (error) {
     res.status(400).send(error);
