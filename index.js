@@ -43,6 +43,14 @@ app.get("/", (req, res) => {
   );
 });
 
+// models
+const { Account } = require("./models/account");
+
+app.get("/customers", async (req, res) => {
+  const accounts = await Account.find().sort("name");
+  res.send(accounts);
+});
+
 const port = process.env.PORT || 3000;
 
 app.listen(port, () => {
