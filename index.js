@@ -26,8 +26,8 @@ mongoose
   // you can entirely remove the MongoDB Atlas configuration and just use "mongodb://localhost:27017/users" to run it locally in your machine - Kasili Wachiye
   // ==========================================================================================================
   .connect(
-    "mongodb+srv://kasiliwachiye:uU83hxw7jzkPtmMm@cluster0.koiptqu.mongodb.net/?retryWrites=true&w=majority" ||
-      "mongodb://localhost:27017/users",
+    // "mongodb+srv://kasiliwachiye:uU83hxw7jzkPtmMm@cluster0.koiptqu.mongodb.net/?retryWrites=true&w=majority" ||
+    "mongodb://localhost:27017/users",
     { useNewUrlParser: true }
   )
   .then(() => {
